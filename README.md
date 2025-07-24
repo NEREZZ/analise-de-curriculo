@@ -2,7 +2,7 @@
 
 ## 📋 Visão Geral
 
-Este projeto implementa um sistema automatizado de análise de currículos utilizando **CrewAI**, uma framework de IA multi-agente. O sistema avalia candidatos com base nos valores culturais da empresa ARMS, fornecendo análises precisas e feedback estruturado sobre a compatibilidade cultural dos perfis profissionais.
+Este projeto implementa um sistema automatizado de análise de currículos utilizando **CrewAI**, uma framework de IA multi-agente. O sistema avalia candidatos com base nos valores culturais da empresa, fornecendo análises precisas e feedback estruturado sobre a compatibilidade cultural dos perfis profissionais.
 
 ## 🎯 Objetivos
 
