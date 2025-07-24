@@ -1,3 +1,4 @@
+import re
 from datetime import datetime
 from fpdf import FPDF
 import PyPDF2
@@ -73,16 +74,53 @@ def limpar_texto(texto):
     texto = unicodedata.normalize('NFKD', texto).encode('latin-1', 'ignore').decode('latin-1')
     return texto
 
+class PDF(FPDF):
+    def __init__(self):
+        super().__init__()
+        self.add_page()
+        self.set_auto_page_break(auto=True, margin=15)
+        self.set_font("Arial", size=12)
+
+    def add_markdown_line(self, line):
+        # Cabeçalhos
+        if line.startswith("### "):  # H3
+            self.set_font("Arial", "B", 14)
+            self.multi_cell(0, 10, line[4:])
+            self.ln(1)
+        elif line.startswith("#### "):  # H4
+            self.set_font("Arial", "B", 12)
+            self.multi_cell(0, 8, line[5:])
+            self.ln(1)
+        elif line.strip() == "***":  # Separador
+            self.set_draw_color(180)
+            self.cell(0, 5, "", ln=1, border="B")
+            self.ln(2)
+        else:
+            # Negrito dentro da linha
+            self.set_font("Arial", "", 12)
+            # Substituir **texto** por texto em negrito
+            parts = re.split(r"(\*\*.*?\*\*)", line)
+            for part in parts:
+                if part.startswith("**") and part.endswith("**"):
+                    self.set_font("Arial", "B", 12)
+                    self.write(6, part[2:-2])
+                    self.set_font("Arial", "", 12)
+                else:
+                    self.write(6, part)
+            self.ln(8)
 
 def cria_pdf(conteudo):
     try:
-        pdf = FPDF()
-        pdf.add_page()
-        pdf.set_font("Arial", size=12)
+        pdf = PDF()
 
-        texto = limpar_texto(str(conteudo))
-        for linha in texto.split('\n'):
-            pdf.multi_cell(0, 10, txt=linha)
+        texto = str(conteudo).strip()
+        linhas = texto.split('\n')
+
+        for linha in linhas:
+            if linha.strip() == "":
+                pdf.ln(5)
+                continue
+            pdf.add_markdown_line(linha)
 
         nome_arquivo = f"Analise_Curriculo_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
         pdf.output(nome_arquivo)
@@ -90,7 +128,5 @@ def cria_pdf(conteudo):
 
     except Exception as e:
         messagebox.showerror("Erro PDF", f"Falha ao gerar PDF: {str(e)}")
-
-
 if __name__ == "__main__":
     abrir_pdf()

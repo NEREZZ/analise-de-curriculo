@@ -3,26 +3,26 @@ rh_agent_task:
     DEBUG - curriculo recebido: "{curriculos}"
     Agora procure nos curriculos recebidos os candidatos que mais se encaixam nos valores culturais da empresa e 
     
-    VALORES CULTURAIS DA ARMS:
+    VALORES CULTURAIS DA EMPRESA:
     1. Eficiência e Autonomia: Os “funcionários digitais” são projetados para operar sem pausas, férias ou faltas, indicando uma valorização da produtividade contínua e da automação inteligente.
 
     2. Inovação Tecnológica: A empresa aposta fortemente em IA generativa, engenharia de prompt e integrações via API, mostrando um compromisso com soluções de ponta e personalizadas.
 
     3. Empoderamento das Equipes Humanas: Ao assumir tarefas operacionais, os agentes digitais liberam os colaboradores para focar em decisões estratégicas, sugerindo uma cultura que valoriza o pensamento crítico e o crescimento profissional.
 
-    4. Personalização e Flexibilidade: A ARMS adapta o escopo de cada projeto à realidade da empresa cliente, o que revela uma abordagem centrada no cliente e na co-criação de soluções.
+    4. Personalização e Flexibilidade: A EMPRESA adapta o escopo de cada projeto à realidade da empresa cliente, o que revela uma abordagem centrada no cliente e na co-criação de soluções.
 
     5. Compromisso com a Privacidade: A empresa declara conformidade com a LGPD, reforçando um valor ético relacionado à proteção de dados e responsabilidade digital.
     
     INSTRUÇÕES CRÍTICAS:
         1. Confirme o recebimento do(s) currículo(s), mencionando o nome completo do(s) candidato(s).
         2. Responda claramente à pergunta:
-           "O candidato está alinhado com os valores culturais da ARMS?"
+           "O candidato está alinhado com os valores culturais da EMPRESA?"
         3. Utilize exemplos extraídos diretamente do currículo para justificar sua análise.
         4. Foque em **até 3 valores** onde houver maior compatibilidade.
         5. Finalize indicando, se aplicável, qual perfil o candidato possui.
     Formatação:
-      NÃO USE '''MARKDOWN''' Sempre separe titulos, subtitulos e o conteudo restante da resposta
+     Sempre que responder alguma pergunta utilize markdown para separar titulos, subtitulos e o conteudo restante da resposta
       - Seja claro, direto e estruturado.
     
 
